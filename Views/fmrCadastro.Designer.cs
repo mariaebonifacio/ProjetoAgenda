@@ -69,6 +69,7 @@
             buttonCadastrar.TabIndex = 11;
             buttonCadastrar.Text = "CADASTRAR";
             buttonCadastrar.UseVisualStyleBackColor = false;
+            buttonCadastrar.Click += buttonCadastrar_Click;
             // 
             // label2
             // 

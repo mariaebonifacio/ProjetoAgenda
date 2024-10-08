@@ -84,7 +84,7 @@
             // 
             // buttonCadastrar
             // 
-            buttonCadastrar.BackColor = Color.CadetBlue;
+            buttonCadastrar.BackColor = Color.DarkCyan;
             buttonCadastrar.Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCadastrar.ForeColor = Color.White;
             buttonCadastrar.Location = new Point(203, 227);
@@ -122,7 +122,7 @@
             // 
             // buttonSair
             // 
-            buttonSair.BackColor = Color.DarkCyan;
+            buttonSair.BackColor = Color.Teal;
             buttonSair.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSair.ForeColor = Color.White;
             buttonSair.Location = new Point(509, 408);
