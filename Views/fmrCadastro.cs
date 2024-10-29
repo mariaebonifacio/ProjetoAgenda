@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.Views;
 
 namespace ProjetoAgenda
 {
@@ -62,32 +63,25 @@ namespace ProjetoAgenda
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
-            MySqlConnection conexao = ConexaoDB.CriarConexao();
+            //Pegando os dados do usuário
+            string nome = textBoxNome.Text;
+            string usuario = textBoxUsuario.Text;
+            string telefone = textBoxTelefone.Text;
+            string senha = textBoxSenha.Text;
 
-            //Abrindo conexão
-            conexao.Open();
+            UsuarioController controleUsuario = new UsuarioController();
 
-            //Criando o comando SQL para inserir o usuário
-            string sql = $"INSERT INTO tbUsuarios (nome, usuario,telefone,senha) VALUES (@nome,@usuario,@telefone,@senha)";
+            bool resultado = controleUsuario.addUsuario(nome, usuario, telefone, senha);
 
-            //criando o comando
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            if (resultado)
+            {
+                MessageBox.Show("Cadastro efetuado com sucesso!");
+            }
 
-            //Inserir os parametros
-            comando.Parameters.AddWithValue("@nome", textBoxNome.Text);
-            comando.Parameters.AddWithValue("@usuario", textBoxUsuario.Text);
-            comando.Parameters.AddWithValue("@telefone", textBoxTelefone.Text);
-            comando.Parameters.AddWithValue("@senha", textBoxSenha.Text);
-
-            //exectando a instrução SQL no bando 
-            comando.ExecuteNonQuery();
-
-            //fechando a conexão com o banco
-            conexao.Close();
-
-            MessageBox.Show("Cadastro realizado com sucesso!");
-            this.Close();
-
+            else
+            {
+                MessageBox.Show("Não foi possível cadastrar o usuário.");
+            }
         }
     }
 }
