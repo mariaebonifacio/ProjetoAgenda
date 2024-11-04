@@ -81,6 +81,7 @@
             buttonEntrar.TabIndex = 5;
             buttonEntrar.Text = "ENTRAR";
             buttonEntrar.UseVisualStyleBackColor = false;
+            buttonEntrar.Click += buttonEntrar_Click;
             // 
             // buttonCadastrar
             // 

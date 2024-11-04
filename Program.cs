@@ -1,3 +1,5 @@
+using ProjetoAgenda.Views;
+
 namespace ProjetoAgenda
 {
     internal static class Program

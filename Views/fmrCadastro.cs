@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjetoAgenda.Data;
-using ProjetoAgenda.Views;
+using ProjetoAgenda.Controller;
 
 namespace ProjetoAgenda
 {

@@ -1,3 +1,5 @@
+using ProjetoAgenda.Views;
+
 namespace ProjetoAgenda
 {
     public partial class Form1 : Form
@@ -43,5 +45,9 @@ namespace ProjetoAgenda
             Application.Exit();
         }
 
+        private void buttonEntrar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
