@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using ProjetoAgenda.Data;
 using ProjetoAgenda.Controller;
 
+
 namespace ProjetoAgenda
 {
     public partial class fmrCadastro : Form

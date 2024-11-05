@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoAgenda.Views
+namespace ProjetoAgenda.Controller
 {
     internal class UsuarioController
     {
@@ -65,7 +65,7 @@ namespace ProjetoAgenda.Views
 
                 conexao.Open();
 
-                MySqlCommand comando = new MySqlCommand (sql, conexao);
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
 
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@senha", senha);
