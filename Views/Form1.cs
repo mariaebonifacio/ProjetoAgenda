@@ -1,3 +1,4 @@
+using ProjetoAgenda.Controller;
 using ProjetoAgenda.Views;
 
 namespace ProjetoAgenda
@@ -47,6 +48,20 @@ namespace ProjetoAgenda
 
         private void buttonEntrar_Click(object sender, EventArgs e)
         {
+            UsuarioController controleusuario = new UsuarioController();
+
+            bool resultado = controleusuario.LogarUsuario(textBoxUsuario.Text, textBoxSenha.Text);
+
+            if (resultado == true)
+            {
+                frmPrincipal formularioPrincipaL = new frmPrincipal();
+                formularioPrincipaL.ShowDialog();
+            }
+
+            else 
+            {
+                MessageBox.Show("Este usuário não está cadastrado.");
+            }
             
         }
     }
