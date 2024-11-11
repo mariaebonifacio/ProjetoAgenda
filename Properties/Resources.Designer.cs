@@ -84,9 +84,29 @@ namespace ProjetoAgenda.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GossipGirl11 {
+            get {
+                object obj = ResourceManager.GetObject("GossipGirl11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_lock_4341303_120563 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder-lock-4341303_120563", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Papel_de_Parede_Preto_e_Branco {
+            get {
+                object obj = ResourceManager.GetObject("Papel de Parede Preto e Branco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

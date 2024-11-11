@@ -21,5 +21,16 @@ namespace ProjetoAgenda.Views
         {
             this.Close();
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoria formularioCategoria = new frmCategoria();
+            formularioCategoria.ShowDialog();
+        }
+
+        private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
