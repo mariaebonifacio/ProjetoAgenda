@@ -16,5 +16,10 @@ namespace ProjetoAgenda.Views
         {
             InitializeComponent();
         }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -33,6 +33,7 @@
             editarToolStripMenuItem = new ToolStripMenuItem();
             cadastarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
+            sairToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             // 
             // arquivoToolStripMenuItem
             // 
+            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sairToolStripMenuItem });
             arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             arquivoToolStripMenuItem.Size = new Size(61, 20);
             arquivoToolStripMenuItem.Text = "&Arquivo";
@@ -62,14 +64,21 @@
             // 
             cadastarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
             cadastarToolStripMenuItem.Name = "cadastarToolStripMenuItem";
-            cadastarToolStripMenuItem.Size = new Size(180, 22);
+            cadastarToolStripMenuItem.Size = new Size(120, 22);
             cadastarToolStripMenuItem.Text = "Cadastar";
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Size = new Size(130, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
+            // 
+            // sairToolStripMenuItem
+            // 
+            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            sairToolStripMenuItem.Size = new Size(180, 22);
+            sairToolStripMenuItem.Text = "Sair";
+            sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
             // frmPrincipal
             // 
@@ -93,5 +102,6 @@
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem cadastarToolStripMenuItem;
         private ToolStripMenuItem categoriasToolStripMenuItem;
+        private ToolStripMenuItem sairToolStripMenuItem;
     }
 }
