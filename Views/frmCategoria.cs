@@ -60,6 +60,9 @@ namespace ProjetoAgenda.Views
         private void buttonDeletar_Click(object sender, EventArgs e)
         {
             int codigo = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+            CategoriaController categoria = new CategoriaController();
+            bool resultado = categoria.ExcluirCategorias(codigo);
+            AtualizarDataGrid(); 
         }
     }
 }
