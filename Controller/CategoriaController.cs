@@ -97,5 +97,48 @@ namespace ProjetoAgenda.Controller
                     return new DataTable();
                 }
         }
+
+        //public bool ExcluirCategorias(string id_categoria)
+        //{
+            
+
+        //    try
+        //    {
+        //        MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+        //        conexao = ConexaoDB.CriarConexao();
+
+        //        //Comando SQL que será executado
+        //        string sql = @"DELETE FROM tbcategoria
+        //                    WHERE id_categoria = (id_categoria);";
+
+        //        MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+        //        //Abrir a conexão com o banco
+        //        conexao.Open();
+
+        //        //Estou trocando o valor dos @ pelas informações que serão cadastradas
+        //        //Esas informações vieram dos parametros da função
+        //        comando.Parameters.AddWithValue("@id_categoria", id_categoria);
+
+        //        //Executando no banco de dados
+        //        int linhasAfetadas = comando.ExecuteNonQuery();
+
+        //        if (linhasAfetadas > 0)
+        //        { return true; }
+
+        //        else
+        //        { return false; }
+        //    }
+
+
+        //    catch (Exception erro)
+        //    {
+        //        MessageBox.Show($"ERRO AO EXCLUIR CATEGORIA: {erro.Message}");
+        //    }
+
+        //}
+
+        //}
     }
 }

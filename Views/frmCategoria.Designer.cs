@@ -33,6 +33,9 @@
             ButtonCadastrar = new Button();
             textBoxCadastrar = new TextBox();
             dgvCategoria = new DataGridView();
+            buttonVoltar = new Button();
+            buttonDeletar = new Button();
+            txtDeletar = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
@@ -81,6 +84,39 @@
             dgvCategoria.Size = new Size(317, 287);
             dgvCategoria.TabIndex = 1;
             // 
+            // buttonVoltar
+            // 
+            buttonVoltar.BackColor = SystemColors.AppWorkspace;
+            buttonVoltar.Font = new Font("Showcard Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonVoltar.Location = new Point(19, 492);
+            buttonVoltar.Name = "buttonVoltar";
+            buttonVoltar.Size = new Size(97, 34);
+            buttonVoltar.TabIndex = 2;
+            buttonVoltar.Text = "Voltar";
+            buttonVoltar.UseVisualStyleBackColor = false;
+            buttonVoltar.Click += buttonVoltar_Click;
+            // 
+            // buttonDeletar
+            // 
+            buttonDeletar.BackColor = Color.Black;
+            buttonDeletar.Font = new Font("Gill Sans Ultra Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonDeletar.ForeColor = Color.White;
+            buttonDeletar.Location = new Point(790, 431);
+            buttonDeletar.Name = "buttonDeletar";
+            buttonDeletar.Size = new Size(157, 40);
+            buttonDeletar.TabIndex = 3;
+            buttonDeletar.Text = "Deletar";
+            buttonDeletar.UseVisualStyleBackColor = false;
+            buttonDeletar.Click += buttonDeletar_Click;
+            // 
+            // txtDeletar
+            // 
+            txtDeletar.Location = new Point(585, 374);
+            txtDeletar.Multiline = true;
+            txtDeletar.Name = "txtDeletar";
+            txtDeletar.Size = new Size(362, 39);
+            txtDeletar.TabIndex = 4;
+            // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -88,16 +124,19 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1019, 546);
+            Controls.Add(txtDeletar);
+            Controls.Add(buttonDeletar);
+            Controls.Add(buttonVoltar);
             Controls.Add(dgvCategoria);
             Controls.Add(groupBox1);
             Name = "frmCategoria";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmCategoria";
-            Load += frmCategoria_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -106,5 +145,8 @@
         private Button ButtonCadastrar;
         private TextBox textBoxCadastrar;
         private DataGridView dgvCategoria;
+        private Button buttonVoltar;
+        private Button buttonDeletar;
+        private TextBox txtDeletar;
     }
 }

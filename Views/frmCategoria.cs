@@ -18,12 +18,24 @@ namespace ProjetoAgenda.Views
             InitializeComponent();
         }
 
+        private void AtualizarDataGrid()
+        {
+            CategoriaController controleCategoria = new CategoriaController();
+
+            DataTable tabela = controleCategoria.GetCategorias();
+
+            //Ele seleciona toda a tabela
+            dgvCategoria.DataSource = tabela;
+        }
+
         private void ButtonCadastrar_Click(object sender, EventArgs e)
         {
             CategoriaController controleCategoria = new CategoriaController();
 
 
             bool resultado = controleCategoria.AddCategoria(textBoxCadastrar.Text);
+
+            AtualizarDataGrid();
 
             if (resultado == true)
             {
@@ -40,14 +52,14 @@ namespace ProjetoAgenda.Views
             dgvCategoria.DataSource = tabela;
         }
 
-        private void frmCategoria_Load(object sender, EventArgs e)
+        private void buttonVoltar_Click(object sender, EventArgs e)
         {
-            CategoriaController controleCategoria = new CategoriaController();
+            this.Close();
+        }
 
-            DataTable tabela = controleCategoria.GetCategorias();
-
-            //Ele seleciona toda a tabela
-            dgvCategoria.DataSource = tabela;
+        private void buttonDeletar_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
         }
     }
 }
