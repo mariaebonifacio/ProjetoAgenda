@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using ProjetoAgenda.Controller;
+using ProjetoAgenda.Data;
 
 namespace ProjetoAgenda.Views
 {
@@ -26,6 +28,7 @@ namespace ProjetoAgenda.Views
             // 
             // button1
             // 
+            button1.Font = new Font("Showcard Gothic", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.Location = new Point(325, 203);
             button1.Name = "button1";
             button1.Size = new Size(335, 155);
@@ -46,11 +49,15 @@ namespace ProjetoAgenda.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UsuarioController controleusuario = new UsuarioController();
-
-            bool resultado = controleusuario.LogarUsuario("maria", "Me12122007");
-
-            MessageBox.Show(resultado.ToString());
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao("Usuario01", "123");
+                MessageBox.Show("Deu certo");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não consegui conectar");
+            }
         }
     }
 }

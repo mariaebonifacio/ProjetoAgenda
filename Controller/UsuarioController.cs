@@ -2,6 +2,7 @@
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace ProjetoAgenda.Controller
 
                 conexao.Open();
 
+
                 //Responsável pelo comando SQL
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
@@ -37,7 +39,9 @@ namespace ProjetoAgenda.Controller
 
                 if (linhasAfetadas > 0)
                 {
+
                     return true;
+
                 }
 
                 else
@@ -86,6 +90,23 @@ namespace ProjetoAgenda.Controller
             {
                 return false;
             }
+        }
+        private bool CreateUsuario(string usuario, string senha)
+        {
+            MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+            string sql2 = @"CREATE USER '{usuario} '@'IDENTIFIED BY '{senha}';
+                    GRANT ALL PRIVILEGES ON bdagenda.* TO '{usuario}'@'%';
+                    FLUSH PRIVILEGES;";
+
+            conexao.Open();
+
+            //Responsável pelo comando SQL
+            MySqlCommand comando = new MySqlCommand(sql2, conexao);
+
+            comando.ExecuteNonQuery();
+
+            return true;
         }
     }
 }

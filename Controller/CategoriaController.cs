@@ -136,6 +136,7 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 MessageBox.Show($"ERRO AO EXCLUIR CATEGORIA: {erro.Message}");
+                return false;
             }
 
         }

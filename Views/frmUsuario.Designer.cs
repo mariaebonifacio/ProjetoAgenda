@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            button1 = new Button();
+            buttonDeletarUsuario = new Button();
             groupBox1 = new GroupBox();
+            buttonCriarUsuario = new Button();
             textBox1 = new TextBox();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -45,18 +45,19 @@
             dataGridView1.Size = new Size(313, 318);
             dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // buttonDeletarUsuario
             // 
-            button1.Location = new Point(68, 382);
-            button1.Name = "button1";
-            button1.Size = new Size(267, 44);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            buttonDeletarUsuario.Font = new Font("Showcard Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonDeletarUsuario.Location = new Point(68, 382);
+            buttonDeletarUsuario.Name = "buttonDeletarUsuario";
+            buttonDeletarUsuario.Size = new Size(267, 44);
+            buttonDeletarUsuario.TabIndex = 1;
+            buttonDeletarUsuario.Text = "Deletar";
+            buttonDeletarUsuario.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(buttonCriarUsuario);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Location = new Point(501, 65);
             groupBox1.Name = "groupBox1";
@@ -64,6 +65,16 @@
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Alterar senha";
+            // 
+            // buttonCriarUsuario
+            // 
+            buttonCriarUsuario.Font = new Font("Showcard Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonCriarUsuario.Location = new Point(35, 225);
+            buttonCriarUsuario.Name = "buttonCriarUsuario";
+            buttonCriarUsuario.Size = new Size(194, 58);
+            buttonCriarUsuario.TabIndex = 1;
+            buttonCriarUsuario.Text = "Criar usuário";
+            buttonCriarUsuario.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -73,22 +84,13 @@
             textBox1.Size = new Size(229, 62);
             textBox1.TabIndex = 0;
             // 
-            // button2
-            // 
-            button2.Location = new Point(35, 225);
-            button2.Name = "button2";
-            button2.Size = new Size(194, 58);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // frmUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox1);
-            Controls.Add(button1);
+            Controls.Add(buttonDeletarUsuario);
             Controls.Add(dataGridView1);
             Name = "frmUsuario";
             Text = "frmUsuario";
@@ -101,9 +103,9 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
+        private Button buttonDeletarUsuario;
         private GroupBox groupBox1;
-        private Button button2;
+        private Button buttonCriarUsuario;
         private TextBox textBox1;
     }
 }

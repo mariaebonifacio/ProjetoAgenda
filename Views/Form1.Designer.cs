@@ -160,7 +160,6 @@
         private Label label1;
         private Label label2;
         private TextBox textBoxSenha;
-        private Button button1;
         private Button buttonEntrar;
         private Button buttonCadastrar;
         private GroupBox groupBox1;
