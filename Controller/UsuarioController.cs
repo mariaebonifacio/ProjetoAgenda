@@ -108,5 +108,72 @@ namespace ProjetoAgenda.Controller
 
             return true;
         }
+
+        public bool ExcluirUsuario(string usuario)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = "DELETE FROM tbusuarios WHERE usuario = @usuario;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@usuario", usuario);
+
+                int LinhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+
+                if (LinhasAfetadas > 0)
+                { return true; }
+                else
+                { return false; }
+            }
+
+
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro: {erro.Message}");
+                return false;
+            }
+        }
+
+        public bool AlterarSenha (string usuario, string senha)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = "UPDATE tbusuarios SET senha = @senha WHERE usuario = @usuario;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@senha", senha);
+                comando.Parameters.AddWithValue("@usuario", usuario);
+
+                int LinhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+
+                if(LinhasAfetadas > 0)
+
+                { return true; }
+
+                else
+                { return false; }
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar usuario: {erro.Message}");
+                return false;
+            }
+        }
     }
 }

@@ -110,8 +110,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao();
 
                 //Comando SQL que será executado
-                string sql = @"DELETE FROM tbcategoria
-                            WHERE id_categoria = (id_categoria);";
+                string sql = "DELETE FROM tbcategoria WHERE id_categoria = @id_categoria";
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
@@ -124,6 +123,8 @@ namespace ProjetoAgenda.Controller
 
                 //Executando no banco de dados
                 int linhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
 
                 if (linhasAfetadas > 0)
                 { return true; }
