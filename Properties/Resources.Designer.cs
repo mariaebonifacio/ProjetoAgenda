@@ -73,6 +73,26 @@ namespace ProjetoAgenda.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Donald {
+            get {
+                object obj = ResourceManager.GetObject("Donald", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Donald_Duck_Free_PNG_Image {
+            get {
+                object obj = ResourceManager.GetObject("Donald-Duck-Free-PNG-Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fundo_aquarela_pastel_ciano_menta_liquido_em_marmore_com_linhas_douradas_353323_451 {
             get {
                 object obj = ResourceManager.GetObject("fundo-aquarela-pastel-ciano-menta-liquido-em-marmore-com-linhas-douradas_353323-4" +
