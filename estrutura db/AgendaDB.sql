@@ -14,3 +14,17 @@ nome_categoria VARCHAR(50)
 );
 
 SELECT * FROM tbcategoria;
+
+DELIMITER $$
+CREATE TRIGGER trInsertCategoria
+BEFORE 
+INSERT
+ON tbcategoria
+FOR EACH ROW
+BEGIN
+	SET NEW.usuario = CURRENT_USER();
+END;
+
+$$
+
+DELIMITER;
