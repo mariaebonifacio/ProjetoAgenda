@@ -81,7 +81,9 @@ namespace ProjetoAgenda.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(UserSession.usuario);
+            CategoriaController categoriaController = new CategoriaController();
+
+            categoriaController.AlterarCategorias("Alunos", 9);
         }
     }
 }

@@ -62,7 +62,28 @@ namespace ProjetoAgenda.Views
             int codigo = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
             CategoriaController categoria = new CategoriaController();
             bool resultado = categoria.ExcluirCategorias(codigo);
-            AtualizarDataGrid(); 
+            AtualizarDataGrid();
+        }
+
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            //CategoriaController categoriaController = new CategoriaController();
+
+            //int codigo = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+            //bool resultado = controleCategoria.AlterarCategorias(textBoxCadastrar.Text);
+            
+
+            //if (resultado == true)
+            //{
+            //    MessageBox.Show("Seu cadastro foi efetuado com sucesso");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Não foi possível realizar seu cadastro.");
+            //}
+
+            //AtualizarDataGrid();
+
         }
     }
 }

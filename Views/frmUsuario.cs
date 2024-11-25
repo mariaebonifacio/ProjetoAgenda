@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoAgenda.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace ProjetoAgenda.Views
         public frmUsuario()
         {
             InitializeComponent();
+        }
+
+        private void buttonAlterarUsuario_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

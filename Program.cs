@@ -16,6 +16,7 @@ namespace ProjetoAgenda
             //Application.Run(new Form1());
 
             Application.Run(new fmrTeste());
+
         }
     }
 }
