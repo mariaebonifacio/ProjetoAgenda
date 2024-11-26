@@ -48,7 +48,7 @@
             groupBox1.Controls.Add(pictureBox2);
             groupBox1.Controls.Add(textBoxUsuario);
             groupBox1.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(273, 59);
+            groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(254, 332);
             groupBox1.TabIndex = 3;
@@ -117,9 +117,10 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(283, 364);
             Controls.Add(groupBox1);
             Name = "frmAlterarUsuario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmAlterarUsuario";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

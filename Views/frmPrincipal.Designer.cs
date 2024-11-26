@@ -84,7 +84,7 @@
             // 
             cadastarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
             cadastarToolStripMenuItem.Name = "cadastarToolStripMenuItem";
-            cadastarToolStripMenuItem.Size = new Size(120, 22);
+            cadastarToolStripMenuItem.Size = new Size(180, 22);
             cadastarToolStripMenuItem.Text = "Cadastar";
             // 
             // categoriasToolStripMenuItem
@@ -98,7 +98,7 @@
             // 
             excluirStripMenu.DropDownItems.AddRange(new ToolStripItem[] { usuárioToolStripMenuItem });
             excluirStripMenu.Name = "excluirStripMenu";
-            excluirStripMenu.Size = new Size(120, 22);
+            excluirStripMenu.Size = new Size(180, 22);
             excluirStripMenu.Text = "Excluir";
             // 
             // usuárioToolStripMenuItem
@@ -112,14 +112,15 @@
             // 
             alterarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { senhaToolStripMenuItem });
             alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
-            alterarToolStripMenuItem.Size = new Size(120, 22);
+            alterarToolStripMenuItem.Size = new Size(180, 22);
             alterarToolStripMenuItem.Text = "Alterar";
             // 
             // senhaToolStripMenuItem
             // 
             senhaToolStripMenuItem.Name = "senhaToolStripMenuItem";
-            senhaToolStripMenuItem.Size = new Size(106, 22);
+            senhaToolStripMenuItem.Size = new Size(180, 22);
             senhaToolStripMenuItem.Text = "Senha";
+            senhaToolStripMenuItem.Click += senhaToolStripMenuItem_Click;
             // 
             // labelWelcome
             // 

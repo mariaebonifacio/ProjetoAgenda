@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -70,11 +71,15 @@ namespace ProjetoAgenda.Controller
                 {
 
                     //Usei a classe ConexaoDB que ja havia criado
-                    conexao = ConexaoDB.CriarConexao();
+                    conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
-                    //Select que vai retornar os dados
-                    string sql = @"SELECT id_categoria as 'Código', nome_categoria as 'Categoria'
-                                   FROM tbcategoria;";
+                string sql = $@"select id_categoria AS'Código', categoria AS 'Categoria'
+                                from tbcategoria
+                                where usuario like '{UserSession.usuario}@'";
+
+                //Select que vai retornar os dados
+                //string sql = @"SELECT id_categoria as 'Código', nome_categoria as 'Categoria'
+                //                   FROM tbcategoria;";
 
                     //Abrir a conexão
                     conexao.Open();
@@ -97,20 +102,22 @@ namespace ProjetoAgenda.Controller
                     
                     return new DataTable();
                 }
+                finally
+                {
+                    conexao.Close();
+                }
         }
 
         public bool ExcluirCategorias(int id_categoria)
         {
-
+            MySqlConnection conexao = null;
 
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
-
                 conexao = ConexaoDB.CriarConexao();
 
                 //Comando SQL que será executado
-                string sql = "DELETE FROM tbcategoria WHERE id_categoria = @id_categoria";
+                string sql = "DELETE FROM  tbcategoria WHERE id_categoria = @id_categoria";
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 

@@ -37,12 +37,10 @@ namespace ProjetoAgenda.Controller
                 //Para executar no banco de dados
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
-                conexao.Close();
-
                 if (linhasAfetadas > 0)
                 {
                     string comandSql2 = $@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
-                                            GRANT ALL PRIVILEGES ON bdagenda.* TO '{usuario}'@'%'
+                                            GRANT ALL PRIVILEGES ON bdagenda.* TO '{usuario}'@'%';
                                             FLUSH PRIVILEGES;";
 
                     comando = new MySqlCommand(comandSql2, conexao);
@@ -57,6 +55,8 @@ namespace ProjetoAgenda.Controller
                 {
                     return false;
                 }
+
+                conexao.Close();
             }
 
             catch (Exception erro)
@@ -72,7 +72,7 @@ namespace ProjetoAgenda.Controller
             {
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
-                string sql = @"select * from tbusuarios
+                string sql = @"select usuario, nome, senha from tbusuarios
                                where usuario = @usuario
                                AND BINARY senha = @senha;";
 
@@ -107,29 +107,13 @@ namespace ProjetoAgenda.Controller
                 return false;
             }
         }
-        private bool CreateUsuario(string usuario, string senha)
-        {
-            MySqlConnection conexao = ConexaoDB.CriarConexao();
-
-            string sql2 = @"CREATE USER '{usuario} '@'IDENTIFIED BY '{senha}';
-                    GRANT ALL PRIVILEGES ON bdagenda.* TO '{usuario}'@'%';
-                    FLUSH PRIVILEGES;";
-
-            conexao.Open();
-
-            //Responsável pelo comando SQL
-            MySqlCommand comando = new MySqlCommand(sql2, conexao);
-
-            comando.ExecuteNonQuery();
-
-            return true;
-        }
 
         public bool ExcluirUsuario(string usuario)
         {
+            MySqlConnection conexao = null;
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao();
 
                 string sql = "DELETE FROM tbusuarios WHERE usuario = @usuario;";
 
@@ -198,7 +182,7 @@ namespace ProjetoAgenda.Controller
             try
             {
                 conexao = ConexaoDB.CriarConexao(VariableGlobal.UserSession.usuario, VariableGlobal.UserSession.senha);
-                string sql = @"select usuarios as 'Usuário', senha as 'Senha' FROM tbusuarios;";
+                string sql = @"select usuario as 'Usuário', senha as 'Senha' FROM tbusuarios;";
                 conexao.Open();
 
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
