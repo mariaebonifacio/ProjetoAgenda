@@ -1,7 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
@@ -39,6 +41,13 @@ namespace ProjetoAgenda.Controller
 
                 if (linhasAfetadas > 0)
                 {
+                    string comandSql2 = $@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
+                                            GRANT ALL PRIVILEGES ON bdagenda.* TO '{usuario}'@'%'
+                                            FLUSH PRIVILEGES;";
+
+                    comando = new MySqlCommand(comandSql2, conexao);
+
+                    linhasAfetadas = comando.ExecuteNonQuery();
 
                     return true;
 
@@ -78,10 +87,17 @@ namespace ProjetoAgenda.Controller
 
                 if (resultado.Read())
                 {
+                    //Caso o usuário consiga logar, preencho o UserSession
+                    //com suas informações
+                    UserSession.usuario = resultado.GetString("usuario");
+                    UserSession.nome = resultado.GetString("nome");
+                    UserSession.senha = resultado.GetString("senha");
+                    conexao.Close();
                     return true;
                 }
                 else
                 {
+                    conexao.Close ();
                     return false;
                 }
             }
@@ -173,6 +189,35 @@ namespace ProjetoAgenda.Controller
             {
                 MessageBox.Show($"Erro ao recuperar usuario: {erro.Message}");
                 return false;
+            }
+        }
+
+        public DataTable GetUsuarios()
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao(VariableGlobal.UserSession.usuario, VariableGlobal.UserSession.senha);
+                string sql = @"select usuarios as 'Usuário', senha as 'Senha' FROM tbusuarios;";
+                conexao.Open();
+
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
+
+                DataTable tabela = new DataTable();
+
+                adaptador.Fill(tabela);
+
+                return tabela;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar os usuários: {erro.Message}");
+
+                return new DataTable();
+            }
+            finally
+            {
+                conexao.Close();
             }
         }
     }

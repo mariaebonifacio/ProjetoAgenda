@@ -15,6 +15,8 @@ namespace ProjetoAgenda.Views
         public frmPrincipal()
         {
             InitializeComponent();
+
+            labelWelcome.Text = $"Seja bem vindo(a), {VariableGlobal.UserSession.nome}!";
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -33,7 +35,12 @@ namespace ProjetoAgenda.Views
             Application.Exit();
         }
 
-        private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void labelWelcome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuárioToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmUsuario formularioUsuario = new frmUsuario();
             formularioUsuario.ShowDialog();

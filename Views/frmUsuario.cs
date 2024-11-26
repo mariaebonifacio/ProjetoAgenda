@@ -16,11 +16,43 @@ namespace ProjetoAgenda.Views
         public frmUsuario()
         {
             InitializeComponent();
+
+            UsuarioController controller = new UsuarioController();
+            DataTable tabela = controller.GetUsuarios();
+
+            dgvUsuario.DataSource = tabela;
         }
 
-        private void buttonAlterarUsuario_Click(object sender, EventArgs e)
+
+        private void buttonExcluirUsuario_Click(object sender, EventArgs e)
         {
-            
+            string usuario = Convert.ToString(dgvUsuario.SelectedRows[0].Cells[0].Value);
+            UsuarioController Controller = new UsuarioController();
+            bool resultado = Controller.ExcluirUsuario(usuario);
+
+            if (resultado)
+            {
+                //Quando clicar no "ok" do messageBox, eme atualiza a GrideView
+                DialogResult result = MessageBox.Show("Exclusão Concluída");
+
+                if (result == DialogResult.OK)
+                {
+                    UsuarioController controller = new UsuarioController();
+                    DataTable tabela = controller.GetUsuarios();
+
+                    dgvUsuario.DataSource = tabela;
+                }
+
+                else
+                {
+                    MessageBox.Show("não foi possível excluir usuário.");
+                }
+            }
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

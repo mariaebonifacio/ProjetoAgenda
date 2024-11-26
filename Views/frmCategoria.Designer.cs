@@ -110,6 +110,7 @@
             dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategoria.Size = new Size(317, 334);
             dgvCategoria.TabIndex = 1;
+            dgvCategoria.CellContentClick += dgvCategoria_CellContentClick;
             // 
             // buttonVoltar
             // 
