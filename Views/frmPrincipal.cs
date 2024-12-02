@@ -35,21 +35,17 @@ namespace ProjetoAgenda.Views
             Application.Exit();
         }
 
-        private void labelWelcome_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void usuárioToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void excluirStripMenu_Click(object sender, EventArgs e)
         {
             frmUsuario formularioUsuario = new frmUsuario();
             formularioUsuario.ShowDialog();
         }
 
-        private void senhaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAlterarUsuario formularioAlterarUsuario = new frmAlterarUsuario();
-            formularioAlterarUsuario.ShowDialog();
+            fmrCadastro formularioCadastro = new fmrCadastro();
+            formularioCadastro.ShowDialog();
         }
     }
 }

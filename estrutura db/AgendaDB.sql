@@ -100,3 +100,54 @@ END
 $$
 DELIMITER ;
 -- ---------------------------------------------------------------------------------------
+
+-- DRELIMITER - ALTERAR SENHA
+
+DELIMITER $$ 
+CREATE TRIGGER tblogSenhaAlterar
+AFTER
+UPDATE
+ON tbusuarios
+FOR EACH ROW 
+BEGIN
+	INSERT INTO tblog
+    (usuario, dataehora,descricao)
+    VALUES 
+    (user(), current_timestamp(),
+    CONCAT('A senha ', old.senha, ' foi alterado para ', new.senha)
+    );
+END
+
+$$
+DELIMITER ;
+-- --------------------------------------------------------------------------------------
+
+-- EXCLUIR USUARIO
+DELIMITER $$
+CREATE TRIGGER tblogUsuarioDelete
+AFTER
+DELETE
+ON tbusuarios
+FOR EACH ROW 
+BEGIN
+	INSERT INTO tblog
+    (usuario, dataehora,descricao)
+    VALUES 
+    (user(), current_timestamp(),
+    CONCAT('O usuário ', OLD.usuario, ' foi excluído')
+    );
+END
+
+$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------------------------------------
+
+-- CRIAR TABELA CONTATOS
+
+create table tbcontatos (
+	contato VARCHAR (80) NOT NULL,
+    telefone VARCHAR (20) PRIMARY KEY,
+    categoria VARCHAR (20)
+    );

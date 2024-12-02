@@ -54,5 +54,32 @@ namespace ProjetoAgenda.Views
         {
             Application.Exit();
         }
+
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            string senha = txtSenha.Text;
+
+            string usuario = txtUsuario.Text;
+
+
+            UsuarioController controleusuario = new UsuarioController();
+
+            bool resultado = controleusuario.AlterarSenha(senha, usuario);
+
+            if (resultado)
+            {
+                MessageBox.Show("Seu cadastro foi alterado com sucesso.");
+            }
+
+            else
+            {
+                MessageBox.Show("Não foi possível alterar seu cadastro.");
+            }
+        }
+
+        private void buttonVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

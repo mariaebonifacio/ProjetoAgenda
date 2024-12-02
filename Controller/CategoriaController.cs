@@ -14,14 +14,14 @@ namespace ProjetoAgenda.Controller
 {
     internal class CategoriaController
     {
-        public bool AddCategoria(string categoria)
+        public bool AddCategoria(string nome_categoria)
         {
             //Criando conexão, estou utilizando a classe ConexaoDB que está dentro da pasta DATA
             MySqlConnection conexao = null;
 
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //Comando SQL que será executado
                 string sql = @"INSERT INTO tbcategoria
@@ -38,7 +38,7 @@ namespace ProjetoAgenda.Controller
 
                 //Estou trocando o valor dos @ pelas informações que serão cadastradas
                 //Esas informações vieram dos parametros da função
-                comando.Parameters.AddWithValue("@nome_categoria", categoria);
+                comando.Parameters.AddWithValue("@nome_categoria", nome_categoria);
 
                 //Executando no banco de dados
                 int linhasAfetadas = comando.ExecuteNonQuery();
@@ -73,13 +73,10 @@ namespace ProjetoAgenda.Controller
                     //Usei a classe ConexaoDB que ja havia criado
                     conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
-                string sql = $@"select id_categoria AS'Código', categoria AS 'Categoria'
-                                from tbcategoria
-                                where usuario like '{UserSession.usuario}@'";
-
                 //Select que vai retornar os dados
-                //string sql = @"SELECT id_categoria as 'Código', nome_categoria as 'Categoria'
-                //                   FROM tbcategoria;";
+                string sql = $@"select id_categoria AS'Código', nome_categoria AS 'Categoria'
+                                from tbcategoria
+                                where usuario = User();";
 
                     //Abrir a conexão
                     conexao.Open();
@@ -114,7 +111,7 @@ namespace ProjetoAgenda.Controller
 
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //Comando SQL que será executado
                 string sql = "DELETE FROM  tbcategoria WHERE id_categoria = @id_categoria";
@@ -155,9 +152,7 @@ namespace ProjetoAgenda.Controller
 
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
-
-                conexao = ConexaoDB.CriarConexao();
+                MySqlConnection conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 //Comando SQL que será executado
                 string sql = @"UPDATE tbcategoria 

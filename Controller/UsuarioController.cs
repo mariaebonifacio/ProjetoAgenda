@@ -21,7 +21,9 @@ namespace ProjetoAgenda.Controller
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
                 //Comando SQL que será executado
-                string sql = "INSERT INTO tbusuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
+                string sql = "INSERT INTO tbusuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);" +
+                    $"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';" +
+                    $"GRANT SELECT, INSERT, UPDATE, DELETE ON bdagenda.* TO '{usuario}'@'%';";
 
                 conexao.Open();
 
@@ -37,15 +39,10 @@ namespace ProjetoAgenda.Controller
                 //Para executar no banco de dados
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
+                conexao.Close();
+
                 if (linhasAfetadas > 0)
                 {
-                    string comandSql2 = $@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
-                                            GRANT ALL PRIVILEGES ON bdagenda.* TO '{usuario}'@'%';
-                                            FLUSH PRIVILEGES;";
-
-                    comando = new MySqlCommand(comandSql2, conexao);
-
-                    linhasAfetadas = comando.ExecuteNonQuery();
 
                     return true;
 
@@ -56,7 +53,6 @@ namespace ProjetoAgenda.Controller
                     return false;
                 }
 
-                conexao.Close();
             }
 
             catch (Exception erro)
@@ -115,7 +111,8 @@ namespace ProjetoAgenda.Controller
             {
                 conexao = ConexaoDB.CriarConexao();
 
-                string sql = "DELETE FROM tbusuarios WHERE usuario = @usuario;";
+                string sql = @$"DELETE FROM tbusuarios WHERE usuario = @usuario;
+                                DROP USER  '{usuario}'@'%';";
 
                 conexao.Open();
 
@@ -129,6 +126,7 @@ namespace ProjetoAgenda.Controller
 
                 if (LinhasAfetadas > 0)
                 { return true; }
+
                 else
                 { return false; }
             }
@@ -142,13 +140,15 @@ namespace ProjetoAgenda.Controller
             }
         }
 
-        public bool AlterarSenha (string usuario, string senha)
+        public bool AlterarSenha (string senha, string usuario)
         {
             try
             {
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
-                string sql = "UPDATE tbusuarios SET senha = @senha WHERE usuario = @usuario;";
+                string sql = "UPDATE tbusuarios SET senha = @senha WHERE usuario = @usuario;" +
+                              $"ALTER USER '{usuario}'@'%'IDENTIFIED BY '{senha}';" +
+                              $"FLUSH PRIVILEGES;";
 
                 conexao.Open();
 
@@ -181,8 +181,11 @@ namespace ProjetoAgenda.Controller
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao(VariableGlobal.UserSession.usuario, VariableGlobal.UserSession.senha);
-                string sql = @"select usuario as 'Usuário', senha as 'Senha' FROM tbusuarios;";
+                //VariableGlobal.UserSession.usuario, VariableGlobal.UserSession.senha
+
+                conexao = ConexaoDB.CriarConexao();
+
+                string sql = "select nome as 'Nome', usuario as 'Usuario' FROM tbusuarios;";
                 conexao.Open();
 
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
