@@ -12,7 +12,8 @@ SELECT * FROM tbusuarios;
 
 create table tbcategoria(
 id_categoria INT auto_increment PRIMARY KEY,
-nome_categoria VARCHAR(50) 
+nome_categoria VARCHAR(50),
+usuario VARCHAR (20) NOT NULL
 );
 -- ------------------------------------
 SELECT * FROM tbcategoria;
@@ -21,17 +22,16 @@ SELECT * FROM tbcategoria;
 -- INSERIR USUARIO	
 DELIMITER $$
 CREATE TRIGGER trInsertCategoria
-BEFORE 
-INSERT
-ON tbcategoria
-FOR EACH ROW
+	BEFORE 
+	INSERT
+	ON tbcategoria
+	FOR EACH ROW
 BEGIN
 	SET NEW.usuario = USER();
 END;
-
 $$
-
 DELIMITER ;
+
 -- -----------------------------------
 
 -- tabela log

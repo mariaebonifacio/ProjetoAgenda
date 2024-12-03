@@ -98,7 +98,7 @@ namespace ProjetoAgenda.Controller
 
         }
 
-        public bool AlterarContatos(string contato, string telefone, string categoria)
+        public bool AlterarContatos(string contato, int telefone, string categoria)
         {
 
 
@@ -108,9 +108,8 @@ namespace ProjetoAgenda.Controller
 
                 //Comando SQL que será executado
                 string sql = @"UPDATE tbcontatos
-                            SET categoria = @categoria 
-                            SET contato = @contato
-                            SET telefone = @telefone
+                            SET categoria = @categoria, 
+                            contato = @contato
                             WHERE telefone = @telefone";
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);

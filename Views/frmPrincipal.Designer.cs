@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             menuStrip1 = new MenuStrip();
             arquivoToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
@@ -35,10 +36,10 @@
             editarToolStripMenuItem = new ToolStripMenuItem();
             cadastarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
+            usuárioToolStripMenuItem = new ToolStripMenuItem();
             excluirStripMenu = new ToolStripMenuItem();
             contatoToolStripMenuItem = new ToolStripMenuItem();
             labelWelcome = new Label();
-            usuárioToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,9 +90,16 @@
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Size = new Size(130, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
+            // 
+            // usuárioToolStripMenuItem
+            // 
+            usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
+            usuárioToolStripMenuItem.Size = new Size(130, 22);
+            usuárioToolStripMenuItem.Text = "Usuário";
+            usuárioToolStripMenuItem.Click += usuárioToolStripMenuItem_Click;
             // 
             // excluirStripMenu
             // 
@@ -105,6 +113,7 @@
             contatoToolStripMenuItem.Name = "contatoToolStripMenuItem";
             contatoToolStripMenuItem.Size = new Size(180, 22);
             contatoToolStripMenuItem.Text = "Contato";
+            contatoToolStripMenuItem.Click += contatoToolStripMenuItem_Click;
             // 
             // labelWelcome
             // 
@@ -119,13 +128,6 @@
             labelWelcome.Text = "Seja bem-vindo!";
             labelWelcome.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // usuárioToolStripMenuItem
-            // 
-            usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
-            usuárioToolStripMenuItem.Size = new Size(180, 22);
-            usuárioToolStripMenuItem.Text = "Usuário";
-            usuárioToolStripMenuItem.Click += usuárioToolStripMenuItem_Click;
-            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -135,6 +137,7 @@
             ClientSize = new Size(720, 450);
             Controls.Add(labelWelcome);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "frmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;

@@ -134,6 +134,7 @@
             Controls.Add(buttonVoltar);
             Controls.Add(dgvCategoria);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCategoria";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmCategoria";

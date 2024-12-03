@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuario));
             dgvUsuario = new DataGridView();
             buttonExcluirUsuario = new Button();
             pictureBox1 = new PictureBox();
@@ -191,6 +192,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(buttonExcluirUsuario);
             Controls.Add(dgvUsuario);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmUsuario";
             Text = "frmUsuario";
             ((System.ComponentModel.ISupportInitialize)dgvUsuario).EndInit();

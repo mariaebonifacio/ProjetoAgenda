@@ -124,9 +124,29 @@ namespace ProjetoAgenda.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap latest {
+            get {
+                object obj = ResourceManager.GetObject("latest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Papel_de_Parede_Preto_e_Branco {
             get {
                 object obj = ResourceManager.GetObject("Papel de Parede Preto e Branco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Twilight_sparkle {
+            get {
+                object obj = ResourceManager.GetObject("Twilight_sparkle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

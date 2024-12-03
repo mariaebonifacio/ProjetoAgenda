@@ -47,5 +47,11 @@ namespace ProjetoAgenda.Views
             fmrCadastro formularioCadastro = new fmrCadastro();
             formularioCadastro.ShowDialog();
         }
+
+        private void contatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmContato formularioContato = new frmContato();
+            formularioContato.ShowDialog();
+        }
     }
 }
