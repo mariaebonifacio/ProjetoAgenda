@@ -273,6 +273,7 @@
             Controls.Add(pictureBox2);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmContato";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmContato";
             Load += frmContato_Load;
             groupBox1.ResumeLayout(false);

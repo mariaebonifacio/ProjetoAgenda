@@ -194,6 +194,7 @@
             Controls.Add(dgvUsuario);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmUsuario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmUsuario";
             ((System.ComponentModel.ISupportInitialize)dgvUsuario).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
