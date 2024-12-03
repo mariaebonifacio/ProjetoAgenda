@@ -151,3 +151,26 @@ create table tbcontatos (
     telefone VARCHAR (20) PRIMARY KEY,
     categoria VARCHAR (20)
     );
+
+-- ---------------------------------------------------------------------------------------
+
+-- TABELA DE ALTERAR CONTATOS - TRIGGERS
+
+DELIMITER $$ 
+CREATE TRIGGER tblogAlterarContato
+AFTER
+UPDATE
+ON tbcontatos
+FOR EACH ROW 
+BEGIN
+	INSERT INTO tblog
+    (usuario, dataehora,descricao)
+    VALUES 
+    (user(), current_timestamp(),
+    CONCAT('O contato ', old.contato, ' foi alterado para ', new.contato, '\n',
+			'A categoria ', old.categoria, ' foi alterado para ', new.categoria)
+    );
+END
+
+$$
+DELIMITER ;
